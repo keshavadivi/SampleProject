@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.xyz.abc.core.servlets.SearchServlet">
+        <implementation class="com.xyz.abc.core.servlets.SearchServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths">
+            /custom/search
+        </property>
+        <property name="sling.servlet.methods">
+            GET
+        </property>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.xyz.abc.core.servlets.SearchServlet"/>
+        <reference name="search" interface="com.xyz.abc.core.services.SearchQuery" cardinality="1..1" policy="static" bind="bindSearch" unbind="unbindSearch"/>
+    </scr:component>
+</components>
